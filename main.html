@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eldana Ashirova | Portfolio</title>
+<meta name="description" content="Portfolio of Eldana Ashirova, BSc Artificial Intelligence student at MBZUAI. Machine learning, backend engineering and quantum computing research.">
+<meta property="og:title" content="Eldana Ashirova | Portfolio">
+<meta property="og:description" content="BSc Artificial Intelligence student at MBZUAI working across machine learning, backend engineering and quantum computing research.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #FFFFFF;
+    --periwinkle: #676F9D;
+    --indigo: #424769;
+    --deep: #2D3250;
+    --page: #1C2038;
+    --peach: #F9B17A;
+
+    --text: #FFFFFF;
+    --muted: #C3C8E0;
+    --line: rgba(255,255,255,0.14);
+
+    --font: "Raleway", "Helvetica Neue", Arial, sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(76px + env(safe-area-inset-top, 0px)); background: var(--page); }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--text);
+    font-family: var(--font);
+    font-variant-numeric: lining-nums;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  a:focus-visible { outline: 3px solid var(--peach); outline-offset: 3px; border-radius: 4px; }
+  .wrap { width: min(1080px, 100% - 48px); margin-inline: auto; }
+  h1, h2, h3 { font-family: var(--font); font-weight: 600; }
+
+  /* Header */
+  .site-header {
+    position: sticky; top: 0; z-index: 10;
+    padding-top: env(safe-area-inset-top, 0px);
+    background: color-mix(in srgb, var(--page) 90%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 62px; }
+  .brand { font-weight: 600; font-size: 1.15rem; text-decoration: none; white-space: nowrap; letter-spacing: 0.01em; }
+  .nav { display: flex; gap: 26px; overflow-x: auto; scrollbar-width: none; }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a { color: var(--muted); text-decoration: none; font-size: 0.98rem; white-space: nowrap; padding: 4px 0; border-bottom: 2px solid transparent; }
+  .nav a:hover { color: #fff; border-bottom-color: var(--peach); }
+
+  /* Hero */
+  .hero { padding: 88px 0 64px; }
+  .hero .wrap { display: grid; grid-template-columns: 1.25fr 1fr; gap: 64px; align-items: start; }
+  .hero h1 {
+    font-weight: 600;
+    font-size: clamp(2.9rem, 7vw, 5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0 0 22px;
+  }
+  .hero .role { font-size: 1.2rem; color: var(--peach); margin: 0 0 24px; max-width: 32ch; font-weight: 500; }
+  .spectrum { width: 72px; height: 4px; border-radius: 999px; margin: 0 0 28px; background: var(--peach); box-shadow: 0 0 20px rgba(249,177,122,0.6); }
+  .hero .summary { max-width: 54ch; margin: 0 0 32px; color: var(--muted); }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; min-height: 46px;
+    padding: 10px 26px; border-radius: 10px;
+    font-weight: 600; font-size: 1rem; text-decoration: none;
+    border: 1.5px solid rgba(255,255,255,0.75);
+    color: var(--white);
+  }
+  .btn.primary { background: var(--peach); color: var(--deep); border-color: var(--peach); box-shadow: 0 6px 22px rgba(249,177,122,0.32); }
+  .btn.primary:hover { background: #fcc298; border-color: #fcc298; }
+  .btn.ghost:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+
+  .profile { background: var(--indigo); border-radius: 22px; padding: 30px 30px 18px; box-shadow: 0 24px 60px rgba(8,10,24,0.45); }
+  .profile h2 { font-size: 1.15rem; margin: 0 0 8px; color: var(--peach); }
+  .profile dl { margin: 0; }
+  .profile .row { padding: 14px 0; border-top: 1px solid var(--line); }
+  .profile .row:first-child { border-top: 0; }
+  .profile dt { font-size: 0.88rem; color: #C3C8E0; }
+  .profile dd { margin: 0; font-weight: 500; line-height: 1.45; }
+
+  /* Sections as deep indigo panels */
+  section.block {
+    width: min(1128px, 100% - 32px);
+    margin: 22px auto;
+    padding: 64px 0;
+    border-radius: 28px;
+    background: var(--deep);
+    box-shadow: 0 24px 60px rgba(8,10,24,0.35);
+  }
+  .block .wrap { width: min(1000px, 100% - 64px); display: grid; grid-template-columns: 200px 1fr; gap: 48px; }
+  .block h2 {
+    font-weight: 600;
+    font-size: 1.7rem;
+    letter-spacing: -0.01em;
+    margin: 0;
+    padding-top: 12px;
+    border-top: 3px solid var(--peach);
+    align-self: start;
+    width: fit-content;
+    min-width: 96px;
+  }
+  .stack { display: grid; gap: 46px; }
+
+  .entry { display: grid; grid-template-columns: 160px 1fr; gap: 28px; }
+  .when { color: var(--muted); padding-top: 5px; font-size: 0.98rem; }
+  .entry h3 { font-size: 1.25rem; line-height: 1.35; margin: 0 0 4px; }
+  .where { color: var(--peach); margin: 0 0 14px; font-weight: 500; }
+  .entry ul { margin: 0; padding-left: 1.2rem; display: grid; gap: 10px; max-width: 66ch; color: #E4E7F4; }
+  .entry li::marker { color: var(--peach); }
+  .tag { display: inline-block; margin-left: 8px; padding: 1px 12px; border: 1.5px solid var(--peach); border-radius: 999px; color: var(--peach); font: 600 0.78rem var(--font); vertical-align: 3px; }
+  .advisor { margin: 0 0 14px; max-width: 66ch; color: var(--muted); }
+
+  .project { padding: 28px 0; border-bottom: 1px solid var(--line); }
+  .project:first-child { padding-top: 0; }
+  .project:last-child { border-bottom: 0; padding-bottom: 0; }
+  .project h3 { font-size: 1.3rem; margin: 0 0 2px; }
+  .project .kind { color: var(--peach); margin: 0 0 12px; font-weight: 500; }
+  .project p.desc { margin: 0 0 14px; max-width: 64ch; color: #E4E7F4; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
+  .chips li { background: var(--indigo); border-radius: 8px; padding: 3px 12px; font-size: 0.9rem; color: #fff; }
+
+  dl.skills { margin: 0; }
+  dl.skills .row { display: grid; grid-template-columns: 200px 1fr; gap: 24px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  dl.skills .row:first-child { padding-top: 0; }
+  dl.skills .row:last-child { border-bottom: 0; }
+  dl.skills dt { font-weight: 600; color: var(--peach); }
+  dl.skills dd { margin: 0; color: #E4E7F4; }
+
+  .awards { list-style: none; margin: 0; padding: 0; }
+  .awards li { display: grid; grid-template-columns: 130px 1fr; gap: 24px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .awards li:first-child { padding-top: 0; }
+  .awards li:last-child { border-bottom: 0; }
+  .awards .yr { color: var(--peach); font-weight: 500; }
+  .awards strong { font-weight: 600; }
+  .awards .detail { display: block; color: var(--muted); }
+
+  .contact-copy { font-size: 1.25rem; max-width: 40ch; margin: 0 0 28px; }
+  .links { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  footer { padding: 28px 0 44px; color: var(--muted); font-size: 0.95rem; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  @media (max-width: 860px) {
+    .hero { padding: 52px 0 40px; }
+    .hero .wrap { grid-template-columns: 1fr; gap: 40px; }
+    section.block { width: calc(100% - 24px); padding: 44px 0; border-radius: 22px; }
+    .block .wrap { width: calc(100% - 40px); grid-template-columns: 1fr; gap: 28px; }
+    .entry { grid-template-columns: 1fr; gap: 6px; }
+    dl.skills .row { grid-template-columns: 1fr; gap: 4px; }
+    .awards li { grid-template-columns: 1fr; gap: 2px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top">Eldana Ashirova</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#experience">Experience</a>
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#awards">Awards</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="name">
+    <div class="wrap">
+      <div>
+        <h1 id="name">Eldana Ashirova</h1>
+        <p class="role">Undergraduate in Artificial Intelligence at the Mohamed Bin Zayed University of Artificial Intelligence</p>
+        <div class="spectrum" aria-hidden="true"></div>
+        <p class="summary">
+I’m an AI student and developer focused on building end-to-end intelligent systems, from machine learning pipelines and AI agents to backend systems and data platforms. Alongside my engineering work, I conduct research at the intersection of artificial intelligence and quantum computing.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#experience">View experience</a>
+          <a class="btn ghost" href="#contact">Contact</a>
+        </div>
+      </div>
+
+      <aside class="profile" aria-labelledby="profile-h">
+        <h2 id="profile-h">At a glance</h2>
+        <dl>
+          <div class="row"><dt>Programme</dt><dd>BSc in Artificial Intelligence</dd></div>
+          <div class="row"><dt>Scholarship</dt><dd>HH Sheikh Tahnoon Bin Zayed Scholarship for AI Excellence</dd></div>
+          <div class="row"><dt>Research focus</dt><dd>Quantum computing and AI</dd></div>
+          <div class="row"><dt>Location</dt><dd>Abu Dhabi, UAE</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section class="block" id="experience" aria-labelledby="h-exp">
+    <div class="wrap">
+      <h2 id="h-exp">Experience</h2>
+      <div class="stack">
+
+        <article class="entry">
+          <div class="when">Jul 2026 to Sep 2026</div>
+          <div>
+            <h3>AI Intern</h3>
+            <p class="where">Watermelon Ecosystem, Dubai, UAE (Hybrid)</p>
+            <ul>
+              <li>Developed a Python web application for AI-assisted catalogue management, taking the project from business requirements through implementation, testing and handover.</li>
+              <li>Built data pipelines for extracting, cleaning and normalizing supplier data, with similarity-based matching to identify potential duplicate records.</li>
+              <li>Developed AI-agent workflows for product classification and attribute extraction, with automated quality checks and human review to resolve ambiguous data.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="when">May 2026 to Jun 2026</div>
+          <div>
+            <h3>Backend Developer Intern</h3>
+            <p class="where">Daffa, Cairo, Egypt (Remote)</p>
+            <ul>
+              <li>Built Flask REST APIs for a mobile booking marketplace, including JWT authentication, profiles, file uploads and nested user data.</li>
+              <li>Modeled and migrated PostgreSQL data with SQLAlchemy and Alembic, and automated backend tests with Pytest.</li>
+              <li>Implemented booking and payment status flows with transactional rollback logic.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="when">Jun 2026 to Aug 2026</div>
+          <div>
+            <h3>Liaison <span class="tag">Leadership</span></h3>
+            <p class="where">International Olympiad in Artificial Intelligence (IOAI) 2026, Astana, Kazakhstan</p>
+            <ul>
+              <li>Coordinated schedules, logistics and communications for international participants representing more than 100 countries, and resolved issues as they arose throughout the Olympiad.</li>
+              <li>Served as a reliable point of contact between participants and organizers while engaging with students' AI projects and helping build a welcoming, cross-cultural environment.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="research" aria-labelledby="h-res">
+    <div class="wrap">
+      <h2 id="h-res">Research</h2>
+      <div class="stack">
+
+        <article class="entry">
+          <div class="when">Aug 2026 to present</div>
+          <div>
+            <h3>Undergraduate Student Researcher, Quantum Computing &amp; AI</h3>
+            <p class="advisor">Faculty-guided research under Prof. Jorge Alejandro Amador Herrera, Visiting Assistant Professor of Computer Vision and Research Scientist at MBZUAI.</p>
+            <ul>
+              <li>Exploring the intersection of artificial intelligence and quantum computing, turning quantum-mechanical principles into structured computational questions and testable experimental directions.</li>
+              <li>Preparing simulator-based studies with Qiskit and IBM Quantum to examine quantum circuits, measurement, noise and reliability, and to investigate how AI methods can support quantum-system analysis and experimental decision-making.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="when">Sep 2021 to May 2024</div>
+          <div>
+            <h3>Research Co-Author, Semiconductor Nanocomposite Thin Films</h3>
+            <p class="where">Al-Farabi Kazakh National University</p>
+            <ul>
+              <li>Designed and optimized experimental systems for nanomaterial fabrication, using data-driven parameter tuning to improve material composition, structure and performance.</li>
+              <li>Analyzed material properties with SEM, EDX, Raman and optical spectroscopy, identified nonlinear optical behavior and plasmon-resonance effects, and developed a predictive model linking composition to optical performance.</li>
+              <li>Translated experimental findings into practical insights for solar energy, sensing technologies and nanophotonics.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="projects" aria-labelledby="h-proj">
+    <div class="wrap">
+      <h2 id="h-proj">Projects</h2>
+      <div>
+
+        <article class="project">
+          <h3>CreditSense</h3>
+          <p class="kind">Applied machine learning and risk analytics, 2025 to 2026</p>
+          <p class="desc">A financial risk modeling project built on 35,000 records, where I developed and optimized classification and regression ensembles to improve predictive performance and deliver more reliable risk assessments.</p>
+          <ul class="chips" aria-label="Technologies">
+            <li>Python</li><li>Scikit-learn</li><li>XGBoost</li><li>LightGBM</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h3>SudokuMind</h3>
+          <p class="kind">AI-powered full-stack web application, 2026</p>
+          <p class="desc">A real-time multiplayer Sudoku platform. It includes user authentication, secure database rules, game rooms, leaderboards and an AI coach that helps players improve.</p>
+          <ul class="chips" aria-label="Technologies">
+            <li>TypeScript</li><li>Next.js</li><li>Supabase</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h3>Eagle Bot</h3>
+          <p class="kind">Autonomous decision-making agent, 2026</p>
+          <p class="desc">An autonomous game-playing agent designed to run within strict time limits. It combines graph search, spatial analysis and heuristic scoring, with defensive fallbacks so it always returns a safe move.</p>
+          <ul class="chips" aria-label="Technologies">
+            <li>Python</li><li>Algorithms</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="education" aria-labelledby="h-edu">
+    <div class="wrap">
+      <h2 id="h-edu">Education</h2>
+      <div class="stack">
+
+        <article class="entry">
+          <div class="when">Aug 2025 to May 2029</div>
+          <div>
+            <h3>BSc in Artificial Intelligence, Engineering stream</h3>
+            <p class="where">Mohamed Bin Zayed University of Artificial Intelligence, Abu Dhabi, UAE</p>
+            <ul>
+              <li>Recipient of the HH Sheikh Tahnoon Bin Zayed Scholarship for AI Excellence.</li>
+              <li>Coursework: Machine Learning, Algorithms &amp; Data Structures, Probability &amp; Statistics, Python Programming.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="when">Graduated 2024</div>
+          <div>
+            <h3>National School of Physics and Mathematics</h3>
+            <p class="where">Almaty, Kazakhstan</p>
+            <ul>
+              <li>GPA 5.0 / 5.0 on a full merit scholarship.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="skills" aria-labelledby="h-skills">
+    <div class="wrap">
+      <h2 id="h-skills">Skills</h2>
+      <dl class="skills">
+        <div class="row"><dt>Programming</dt><dd>Python, TypeScript, JavaScript, SQL</dd></div>
+        <div class="row"><dt>Backend</dt><dd>Flask, FastAPI, REST APIs, JWT Authentication, SQLAlchemy, Alembic, Pytest</dd></div>
+        <div class="row"><dt>AI and ML</dt><dd>Scikit-learn, PyTorch, TensorFlow, XGBoost, LightGBM, CatBoost, Optuna</dd></div>
+        <div class="row"><dt>Full-stack and databases</dt><dd>React.js, Next.js, Supabase, PostgreSQL, HTML, CSS, Tailwind CSS</dd></div>
+        <div class="row"><dt>Tools</dt><dd>Git, GitHub, VS Code, Google Colab, Jupyter, Linux</dd></div>
+        <div class="row"><dt>Languages</dt><dd>Russian (native), English (fluent, IELTS 7.5), Arabic (intermediate)</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="block" id="awards" aria-labelledby="h-awards">
+    <div class="wrap">
+      <h2 id="h-awards">Awards</h2>
+      <ul class="awards">
+        <li>
+          <span class="yr">2024</span>
+          <div><strong>International Zhautykov Olympiad, Bronze Medal</strong><span class="detail">Top performer among 190+ participants from 16 countries.</span></div>
+        </li>
+        <li>
+          <span class="yr">2023 and 2024</span>
+          <div><strong>National Physics Olympiad, Bronze Medals</strong><span class="detail">Top 160 students nationwide.</span></div>
+        </li>
+        <li>
+          <span class="yr">2023</span>
+          <div><strong>MILSET Expo Sciences, Best Project in Materials Science</strong></div>
+        </li>
+        <li>
+          <span class="yr">2022</span>
+          <div><strong>National Scientific Project Competition, Gold Medal</strong><span class="detail">First place among 500+ students.</span></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="contact" aria-labelledby="h-contact">
+    <div class="wrap">
+      <h2 id="h-contact">Contact</h2>
+      <div>
+        <p class="contact-copy">I am open to internships and research collaborations. Email is the quickest way to reach me.</p>
+        <div class="links">
+          <a class="btn primary" href="mailto:eldanaashirova7b@gmail.com">eldanaashirova7b@gmail.com</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/itsrealeldanaashirova" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn ghost" href="https://github.com/eldana23" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Eldana Ashirova, Abu Dhabi, UAE</span>
+    <span>&copy; 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>
